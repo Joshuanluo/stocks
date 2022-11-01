@@ -7,7 +7,8 @@ class StocksController < ApplicationController
   end
 
   def create
-    raise "hell"
+    symbol = params[:symbol].upcase
+    @stock = StockQuote::Stock.quote
   end
 
   def show
