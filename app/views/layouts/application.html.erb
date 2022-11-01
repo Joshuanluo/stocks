@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjectStocks</title>
+    <title>Stocks</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,8 @@
   </head>
 
   <body>
-    <nav>
+  
+    <!--nav>
       <%= link_to 'Home', root_path %>
       <% if @current_user.present? %>
         <% if @current_user.admin %>
@@ -25,6 +26,65 @@
         <%= link_to 'Sign in', login_path %>
         <%= link_to 'Sign up', new_user_path %>
       <% end %>
+    </nav-->
+    
+  
+
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Stocks</a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <%= link_to 'Home', root_path, :class => "nav-link active" %>
+              <!--a class="nav-link active" aria-current="page" href="/">Home</a-->
+            </li>
+            
+            <% if @current_user.present? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= @current_user.name %>
+              </a>
+              <ul class="dropdown-menu">
+                <% if @current_user.admin %>
+                <li>
+                  <!--a class="dropdown-item" href="#">All Users</a-->
+                  <%= link_to 'All Users', users_path , :class => "dropdown-item"%>
+                </li>
+                <% end %>
+                <li>
+                  <!--a class="dropdown-item" href="#">My Orders</a-->
+                  <%= link_to 'My orders', orders_path, :class => "dropdown-item"%>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+
+                <li>
+                  <!--a class="dropdown-item" href="#">Log out</a-->
+                  <%= link_to " #{@current_user.name}, Log out ", login_path, :class => "dropdown-item", :method => "delete" %>
+                </li>
+              </ul>
+            </li>
+            <% else %>
+            <li class="nav-item">
+              <!--a class="nav-link" href="#">Sign in</a-->
+              <%= link_to 'Sign in', login_path, :class =>"nav-link" %>
+            </li>
+            <% end %>
+            <li class="nav-item">
+              <!--a class="nav-link disabled">Disabled</a-->
+              <%= link_to 'Stocks', stocks_path, :class =>"nav-link" %>
+            </li>
+          </ul>
+          <!--form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form-->
+        </div>
+      </div>
     </nav>
 
     <%= yield %>

@@ -30,7 +30,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
+gem 'bootstrap', '~> 5.2.2'
+gem 'jquery-rails'
 gem "stock_quote", '~> 3.0.0'
 
 group :development, :test do
