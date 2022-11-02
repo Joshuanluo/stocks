@@ -1,38 +1,16 @@
 <h1>Stocks#index</h1>
 
-<%= form_with url:stocks_path do |f| %>
-
-        <%= f.text_field :symbol,  :placeholder => "Please enter stock symbol" %>
-
-
-        <%= f.submit "Search" %>
-
-<% end %>
 
 <%= form_tag stocks_path,:method => "POST" do %>
     <%= text_field_tag 'symbol', nil, placeholder: "Please enter stock symbol"%>
     <%= submit_tag "Lookup" %>
 <% end %>
 
+<% if @stock %>
 
-    <% stock=StockQuote::Stock.quote('aapl') %>
-<% company=StockQuote::Stock.company('aapl') %>
-<% logo=StockQuote::Stock.logo('aapl') %>
-<p>
-    <%= stock.inspect %>
-</p>
-
-<p>
-    <%= company.inspect %>
-</p>
-
-<p>
-    <%= stock.company_name %>
-</p>
-
-<p>
-    <%= image_tag logo.url %>
-</p>
+    <p>Company Name: <%= @stock.company_name %></p>
+    <p>Last Price: <%# @stock.last_price %></p>
+<% end %>
 
 
-
+<%= @stock.inspect %>

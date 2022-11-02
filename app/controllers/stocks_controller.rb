@@ -8,7 +8,8 @@ class StocksController < ApplicationController
 
   def create
     symbol = params[:symbol].upcase
-    @stock = StockQuote::Stock.quote
+    @stock = StockQuote::Stock.quote(symbol)
+    render :index
   end
 
   def show
