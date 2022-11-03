@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="signin.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -57,6 +58,9 @@
             <li class="nav-item">
               <!--a class="nav-link" href="#">Sign in</a-->
               <%= link_to 'Sign in', login_path, :class =>"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign up', new_user_path, :class =>"nav-link" %>
             </li>
             <% end %>
             <li class="nav-item">
