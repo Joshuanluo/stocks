@@ -1,2 +1,12 @@
 <h1>Orders#new</h1>
 <p>Find me in app/views/orders/new.html.erb</p>
+
+<p><%= @stock.company_name %></p>
+<p><%= @stock.latest_price %></p>
+
+<%= form_tag orders_path,:method => "POST",:class => "d-flex" do %>
+    <%= number_field_tag 'shares', nil, placeholder: "Please enter stock shares", :class=>"form-control me-2"%>
+    <%= hidden_field_tag "symbol", @stock.symbol%>
+    <%= hidden_field_tag "bid_price", @stock.latest_price%>
+    <%= submit_tag "submit", :class=>"btn btn-primary btn-lg" %>
+<% end %>

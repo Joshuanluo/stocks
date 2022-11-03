@@ -11,22 +11,7 @@
 
   <body>
   
-    <!--nav>
-      <%= link_to 'Home', root_path %>
-      <% if @current_user.present? %>
-        <% if @current_user.admin %>
-          <%= link_to 'All Users', users_path %>
-        <% end %>
-        <%= link_to "Log out #{@current_user.name}", login_path, :method => "delete" %>
 
-        <%= link_to 'New order', new_order_path %>
-        <%= link_to 'My orders', orders_path %>
-        <%= link_to 'Stocks', stocks_path %>
-      <% else %>
-        <%= link_to 'Sign in', login_path %>
-        <%= link_to 'Sign up', new_user_path %>
-      <% end %>
-    </nav-->
     
   
 
@@ -77,6 +62,9 @@
             <li class="nav-item">
               <!--a class="nav-link disabled">Disabled</a-->
               <%= link_to 'Stocks', stocks_path, :class =>"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Search', search_path, :class =>"nav-link" %>
             </li>
           </ul>
           <!--form class="d-flex" role="search">

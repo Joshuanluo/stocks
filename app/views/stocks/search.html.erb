@@ -1,0 +1,29 @@
+<h1>search</h1>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+    <%= form_tag search_path,:method => "POST",:class => "d-flex" do %>
+        <%= text_field_tag 'symbol', nil, placeholder: "Please enter stock symbol", :class=>"form-control me-2"%>
+        <%= submit_tag "Search", :class=>"btn btn-primary btn-lg" %>
+    <% end %>
+    </div>
+    <div class="col"></div>
+</div>
+
+<% if flash[:error].present? %>
+    <p><%= flash[:error] %></p>
+<% end %>
+
+<% if @stock.present? %>
+    <%= image_tag @stock_logo.url %>
+    <p>Stock symbol: <%= @stock.symbol %></p>
+    <p>Company Name: <%= @stock.company_name %></p>
+    <p>Latest Price: $<%= @stock.latest_price %></p>
+    <%= link_to 'buy', new_order_path(@stock.symbol) %>
+
+
+
+    <!--p><%= @stock.inspect %></p-->
+<% end %>
+

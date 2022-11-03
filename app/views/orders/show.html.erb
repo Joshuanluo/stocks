@@ -1,3 +1,20 @@
 <h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
 
+<ol>
+    Order id: <%= @order.id %>
+</ol>
+<ol>
+    Symbol: <%= @order.stocks.first.symbol %>
+</ol>
+<ol>
+    create time: <%= @order.created_at %>
+</ol>
+<ol>
+    Bid price: $<%= @order.bid_price %>
+</ol>
+<ol>
+    Shares: <%= @order.shares %>
+</ol>
+<ol>
+    Order amount: $<%= @order.bid_price * @order.shares%>
+</ol>

@@ -1,16 +1,9 @@
 <h1>Stocks#index</h1>
 
 
-<%= form_tag stocks_path,:method => "POST" do %>
-    <%= text_field_tag 'symbol', nil, placeholder: "Please enter stock symbol"%>
-    <%= submit_tag "Lookup" %>
+
+
+<% @stocks.each do |symbol, shares| %>
+    <p><%= symbol %></p>
+    <p>Shares: <%= shares %></p>
 <% end %>
-
-<% if @stock %>
-
-    <p>Company Name: <%= @stock.company_name %></p>
-    <p>Last Price: <%# @stock.last_price %></p>
-<% end %>
-
-
-<%= @stock.inspect %>
